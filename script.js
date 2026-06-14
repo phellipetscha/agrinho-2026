@@ -1,8 +1,26 @@
+const reveals = document.querySelectorAll('.reveal');
+
+function revealSections(){
+    reveals.forEach(section => {
+
+        const windowHeight = window.innerHeight;
+        const revealTop = section.getBoundingClientRect().top;
+
+        if(revealTop < windowHeight - 100){
+            section.classList.add('active');
+        }
+
+    });
+}
+
+window.addEventListener('scroll', revealSections);
+revealSections();
+
 function contador(id, valor){
 
     let numero = 0;
 
-    let intervalo = setInterval(() => {
+    const intervalo = setInterval(() => {
 
         numero++;
 
