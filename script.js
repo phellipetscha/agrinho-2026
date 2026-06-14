@@ -1,36 +1,38 @@
 const reveals = document.querySelectorAll('.reveal');
 
-function revealSections(){
-    reveals.forEach(section => {
+function mostrar() {
 
-        const windowHeight = window.innerHeight;
-        const revealTop = section.getBoundingClientRect().top;
+reveals.forEach(sec => {
 
-        if(revealTop < windowHeight - 100){
-            section.classList.add('active');
-        }
+const top = sec.getBoundingClientRect().top;
+const altura = window.innerHeight;
 
-    });
+if(top < altura - 100){
+sec.classList.add('active');
 }
 
-window.addEventListener('scroll', revealSections);
-revealSections();
+});
 
-function contador(id, valor){
+}
 
-    let numero = 0;
+window.addEventListener('scroll',mostrar);
+mostrar();
 
-    const intervalo = setInterval(() => {
+function contador(id,valor){
 
-        numero++;
+let numero = 0;
 
-        document.getElementById(id).innerText = numero + "%";
+const tempo = setInterval(()=>{
 
-        if(numero >= valor){
-            clearInterval(intervalo);
-        }
+numero++;
 
-    }, 20);
+document.getElementById(id).innerText = numero + "%";
+
+if(numero >= valor){
+clearInterval(tempo);
+}
+
+},20);
 
 }
 
